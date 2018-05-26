@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    tools:context=".Withdraw">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="30sp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/action"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:paddingBottom="60sp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="60sp"
+            android:textSize="35sp"
+            android:text="$0" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/sub5"
+                android:layout_width="55dip"
+                android:layout_height="55dip"
+                android:layout_weight="1"
+                app:cb_color="#FF0000"
+                app:cb_pressedRingWidth="8dip" />
+
+            <TextView
+                android:id="@+id/label5"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:textSize="25dp"
+                android:gravity="center"
+                android:text="5" />
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/add5"
+                android:layout_width="55dip"
+                android:layout_height="55dip"
+                android:layout_weight="1"
+                app:cb_color="@color/colorPrimary"
+                app:cb_pressedRingWidth="8dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/sub10"
+                android:layout_width="55dip"
+                android:layout_height="55dip"
+                android:layout_weight="1"
+                app:cb_color="#FF0000"
+                app:cb_pressedRingWidth="8dip" />
+
+            <TextView
+                android:id="@+id/label10"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:gravity="center"
+                android:text="10"
+                android:textSize="25dp" />
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/add10"
+                android:layout_width="55dip"
+                android:layout_height="55dip"
+                android:layout_weight="1"
+                app:cb_color="@color/colorPrimary"
+                app:cb_pressedRingWidth="8dip" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/sub20"
+                android:layout_width="55dip"
+                android:layout_height="55dip"
+                android:layout_weight="1"
+                app:cb_color="#FF0000"
+                app:cb_pressedRingWidth="8dip" />
+
+            <TextView
+                android:id="@+id/label20"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".5"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:text="20" />
+
+            <at.markushi.ui.CircleButton
+                android:id="@+id/add20"
+                android:layout_width="55dip"
+                android:layout_height="55dip"
+                android:layout_weight="1"
+                app:cb_color="@color/colorPrimary"
+                app:cb_pressedRingWidth="8dip" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/endingmessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="15sp"
+            android:paddingTop="60sp"
+            android:text="Tap your phone on the ATM to complete the transaction." />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
