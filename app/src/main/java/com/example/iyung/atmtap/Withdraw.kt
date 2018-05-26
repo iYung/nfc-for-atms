@@ -1,5 +1,6 @@
 package com.example.iyung.atmtap
 
+import android.content.Intent
 import android.nfc.NdefMessage
 import android.nfc.NdefRecord
 import android.nfc.NfcAdapter
@@ -11,7 +12,12 @@ import kotlinx.android.synthetic.main.activity_withdraw.*
 import org.json.JSONException
 import org.json.JSONObject
 
-class Withdraw : AppCompatActivity(), NfcAdapter.CreateNdefMessageCallback {
+class Withdraw : AppCompatActivity(), NfcAdapter.CreateNdefMessageCallback, NfcAdapter.OnNdefPushCompleteCallback {
+    override fun onNdefPushComplete(event: NfcEvent?) {
+        val myIntent = Intent(this, MainActivity::class.java)
+        startActivity(myIntent)
+    }
+
     override fun createNdefMessage(event: NfcEvent?): NdefMessage {
         val withdrawText = "withdraw"
 
@@ -25,7 +31,8 @@ class Withdraw : AppCompatActivity(), NfcAdapter.CreateNdefMessageCallback {
 
         val ndefRecord = NdefRecord.createMime("application/json", dataToSend.toString().toByteArray())
         val ndefMessage = NdefMessage(ndefRecord)
-        println("Sending a message")
+        val myIntent = Intent(this, MainActivity::class.java)
+        startActivity(myIntent)
         return ndefMessage
     }
 
@@ -69,5 +76,6 @@ class Withdraw : AppCompatActivity(), NfcAdapter.CreateNdefMessageCallback {
         }
 
         mAdapter.setNdefPushMessageCallback(this, this)
+        mAdapter.setOnNdefPushCompleteCallback(this,  this)
     }
 }

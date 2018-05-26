@@ -1,5 +1,6 @@
 package com.example.iyung.atmtap
 
+import android.content.Intent
 import android.nfc.NdefMessage
 import android.nfc.NdefRecord
 import android.nfc.NfcAdapter
@@ -11,7 +12,11 @@ import kotlinx.android.synthetic.main.activity_deposit.*
 import org.json.JSONException
 import org.json.JSONObject
 
-class Deposit : AppCompatActivity() , NfcAdapter.CreateNdefMessageCallback {
+class Deposit : AppCompatActivity() , NfcAdapter.CreateNdefMessageCallback, NfcAdapter.OnNdefPushCompleteCallback {
+    override fun onNdefPushComplete(event: NfcEvent?) {
+        val myIntent = Intent(this, MainActivity::class.java)
+        startActivity(myIntent)
+    }
 
     override fun createNdefMessage(event: NfcEvent?): NdefMessage {
         val type = "deposit"
@@ -25,7 +30,7 @@ class Deposit : AppCompatActivity() , NfcAdapter.CreateNdefMessageCallback {
 
         val ndefRecord = NdefRecord.createMime("application/json", dataToSend.toString().toByteArray())
         val ndefMessage = NdefMessage(ndefRecord)
-        println("Sending a message")
+
         return ndefMessage
     }
 
@@ -49,5 +54,13 @@ class Deposit : AppCompatActivity() , NfcAdapter.CreateNdefMessageCallback {
         }
 
         mAdapter.setNdefPushMessageCallback(this, this)
+        mAdapter.setOnNdefPushCompleteCallback(this,  this)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        print("On resume")
     }
 }
