@@ -13,11 +13,11 @@ import org.json.JSONObject
 
 class Withdraw : AppCompatActivity(), NfcAdapter.CreateNdefMessageCallback {
     override fun createNdefMessage(event: NfcEvent?): NdefMessage {
-        val type = "withdraw"
+        val withdrawText = "withdraw"
 
         val dataToSend = JSONObject()
         try {
-            dataToSend.put("type", type)
+            dataToSend.put("type", withdrawText)
             dataToSend.put("amount", amount.text)
         } catch (e: JSONException) {
             e.printStackTrace()
