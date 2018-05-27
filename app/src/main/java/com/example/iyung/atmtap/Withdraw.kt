@@ -33,7 +33,7 @@ class Withdraw : AppCompatActivity(), NfcAdapter.CreateNdefMessageCallback, NfcA
         }
 
         val ndefRecord = NdefRecord.createMime("application/json", dataToSend.toString().toByteArray())
-        val ndefMessage = NdefMessage(ndefRecord)
+        val ndefMessage = NdefMessage( ndefRecord )
         return ndefMessage
     }
 
