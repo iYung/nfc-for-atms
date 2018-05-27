@@ -28,11 +28,13 @@
         </activity>
         <activity
             android:name=".Withdraw"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Deposit"
             android:screenOrientation="portrait"
-             />
-        <activity android:name=".Deposit"
-            android:windowSoftInputMode="stateVisible"
-            android:screenOrientation="portrait"/>
+            android:windowSoftInputMode="stateVisible" />
+        <activity android:name=".Receipt"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

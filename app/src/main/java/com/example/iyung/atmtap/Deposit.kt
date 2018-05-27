@@ -7,6 +7,7 @@ import android.nfc.NfcAdapter
 import android.nfc.NfcEvent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_deposit.*
 import org.json.JSONException
@@ -14,7 +15,10 @@ import org.json.JSONObject
 
 class Deposit : AppCompatActivity() , NfcAdapter.CreateNdefMessageCallback, NfcAdapter.OnNdefPushCompleteCallback {
     override fun onNdefPushComplete(event: NfcEvent?) {
-        val myIntent = Intent(this, MainActivity::class.java)
+        val myIntent = Intent(this, Receipt::class.java)
+        myIntent.putExtra("account", account.text)
+        myIntent.putExtra("action", "Deposit")
+        myIntent.putExtra("amount", amount.text.toString())
         startActivity(myIntent)
     }
 

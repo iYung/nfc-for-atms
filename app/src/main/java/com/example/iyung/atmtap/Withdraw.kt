@@ -14,7 +14,10 @@ import org.json.JSONObject
 
 class Withdraw : AppCompatActivity(), NfcAdapter.CreateNdefMessageCallback, NfcAdapter.OnNdefPushCompleteCallback {
     override fun onNdefPushComplete(event: NfcEvent?) {
-        val myIntent = Intent(this, MainActivity::class.java)
+        val myIntent = Intent(this, Receipt::class.java)
+        myIntent.putExtra("account", account.text)
+        myIntent.putExtra("action", "Withdrawal")
+        myIntent.putExtra("amount", amount.text.toString())
         startActivity(myIntent)
     }
 
@@ -31,8 +34,6 @@ class Withdraw : AppCompatActivity(), NfcAdapter.CreateNdefMessageCallback, NfcA
 
         val ndefRecord = NdefRecord.createMime("application/json", dataToSend.toString().toByteArray())
         val ndefMessage = NdefMessage(ndefRecord)
-        val myIntent = Intent(this, MainActivity::class.java)
-        startActivity(myIntent)
         return ndefMessage
     }
 
