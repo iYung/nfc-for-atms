@@ -28,6 +28,7 @@ class Withdraw : AppCompatActivity(), NfcAdapter.CreateNdefMessageCallback, NfcA
         try {
             dataToSend.put("type", withdrawText)
             dataToSend.put("amount", amount.text)
+            dataToSend.put("account", account.text)
         } catch (e: JSONException) {
             e.printStackTrace()
         }

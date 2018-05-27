@@ -28,6 +28,7 @@ class Deposit : AppCompatActivity() , NfcAdapter.CreateNdefMessageCallback, NfcA
         try {
             dataToSend.put("type", type)
             dataToSend.put("amount", amount.text)
+            dataToSend.put("account", account.text)
         } catch (e: JSONException) {
             e.printStackTrace()
         }
